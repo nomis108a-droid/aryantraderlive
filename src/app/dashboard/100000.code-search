@@ -1,0 +1,51 @@
+# Query: 100000
+# ContextLines: 1
+
+12 results - 7 files
+
+src/app/layout.tsx:
+  33      { tier: 50000, reward: "iPhone or MacBook" },
+  34:     { tier: 100000, reward: "International Trip with Aryan Sir" }
+  35    ]
+
+src/app/admin-dashboard/page.tsx:
+  211        const v = r.views || 0;
+  212:       if (v >= 100000) return acc + 1500;
+  213        if (v >= 50000) return acc + 500;
+
+  463                          {creatorProfileData.reels.map((r, i) => {
+  464:                           const bonus = (!viewingCreator.isDisqualified && viewingCreator.followerCount >= 1000) ? (r.views >= 100000 ? 1500 : r.views >= 50000 ? 500 : 0) : 0;
+  465                            return (
+
+src/app/dashboard/page.tsx:
+   85        let earned = 0;
+   86:       if (views >= 100000) earned = 1500;
+   87        else if (views >= 50000) earned = 500;
+
+  168      { tier: 50000, reward: activeRewards[2]?.reward, icon: <Smartphone className="w-3 h-3" />, label: "50K" },
+  169:     { tier: 1000, reward: activeRewards[3]?.reward, icon: <Plane className="w-3 h-3" />, label: "100K" }
+  170    ]
+
+src/app/fanpage/[id]/fan-page-client.tsx:
+  59      if (val < 50000) return { next: 50000, label: "50K", percent: (val / 50000) * 100 }
+  60:     if (val < 100000) return { next: 100000, label: "100K", percent: (val / 100000) * 100 }
+  61      return { next: 250000, label: "250K", percent: 100 }
+
+src/app/leaderboard/page.tsx:
+  78                    const count = page.followerCount || 0
+  79:                   const tier = count >= 100000 ? "Elite" : count >= 50000 ? "Pro" : count >= 10000 ? "Star" : count >= 1000 ? "Rising" : "New"
+  80                    return (
+
+src/app/payout/page.tsx:
+   65        const views = sub.views || 0
+   66:       if (views >= 100000) return acc + 1500
+   67        if (views >= 50000) return acc + 500
+
+  187                  { tier: 50000, label: "50K Followers", icon: <Smartphone className="w-4 h-4 text-secondary" /> },
+  188:                 { tier: 100000, label: "100K Followers", icon: <Plane className="w-4 h-4 text-primary" /> }
+  189                ].map((m) => {
+
+src/hooks/use-toast.ts:
+  11  const TOAST_LIMIT = 1
+  12: const TOAST_REMOVE_DELAY = 1000000
+  13  

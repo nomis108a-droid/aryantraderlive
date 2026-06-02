@@ -1,0 +1,16 @@
+{
+  "placeholderImages": [
+    {
+      "id": "aryan-hero",
+      "description": "Professional trading desk background",
+      "imageUrl": "https://picsum.photos/seed/aryan1/1200/600",
+      "imageHint": "trading setup"
+    },
+    {
+      "id": "creator-1",
+      "description": "Fan page creator profile",
+      "imageUrl": "https://picsum.photos/seed/creator1/200/200",
+      "imageHint": "profile person"
+    }
+  ]
+}

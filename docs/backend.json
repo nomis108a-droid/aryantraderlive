@@ -1,0 +1,105 @@
+
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Basic user profile information for authentication and sessions.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "handle": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "handle"]
+    },
+    "SiteConfig": {
+      "title": "Site Configuration",
+      "description": "Global configuration documents for dynamic content and settings.",
+      "type": "object",
+      "properties": {
+        "data": { "type": "object" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Registration": {
+      "title": "Creator Registration",
+      "description": "Official fan page registration details.",
+      "type": "object",
+      "properties": {
+        "creatorName": { "type": "string" },
+        "handle": { "type": "string" },
+        "url": { "type": "string" },
+        "followerCount": { "type": "number" },
+        "phoneNumber": { "type": "string" },
+        "cityState": { "type": "string" },
+        "screenshotUrl": { "type": "string" },
+        "userId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "isDisqualified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["creatorName", "handle", "userId", "status"]
+    },
+    "Submission": {
+      "title": "Reel Submission",
+      "description": "Performance metrics for a specific Instagram Reel.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "instagramHandle": { "type": "string" },
+        "reelUrl": { "type": "string" },
+        "description": { "type": "string" },
+        "views": { "type": "number" },
+        "likes": { "type": "number" },
+        "thumbnailUrl": { "type": "string" },
+        "submittedAt": { "type": "string", "format": "date-time" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "instagramHandle", "reelUrl", "views"]
+    },
+    "Payout": {
+      "title": "Payout Request",
+      "description": "A request for cash withdrawal.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "paid", "rejected"] },
+        "method": { "type": "string" },
+        "accountDetails": { "type": "string" },
+        "accountHolderName": { "type": "string" },
+        "ifscCode": { "type": "string" },
+        "transactionId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "amount", "status"]
+    },
+    "ProofMedia": {
+      "title": "Proof Media",
+      "description": "Evidence of prize distribution (images or videos).",
+      "type": "object",
+      "properties": {
+        "fileUrl": { "type": "string" },
+        "type": { "type": "string", "enum": ["image", "video"] },
+        "caption": { "type": "string" },
+        "isPinned": { "type": "boolean" },
+        "uploadedAt": { "type": "string", "format": "date-time" },
+        "uploadedBy": { "type": "string" }
+      },
+      "required": ["fileUrl", "type", "uploadedAt"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/users/{userId}": { "schema": "User", "description": "User registry." },
+    "/registrations/{regId}": { "schema": "Registration", "description": "Creator registry." },
+    "/submissions/{subId}": { "schema": "Submission", "description": "Reel performance tracking." },
+    "/payouts/{payoutId}": { "schema": "Payout", "description": "Withdrawal requests." },
+    "/proofMedia/{proofId}": { "schema": "ProofMedia", "description": "Gallery of prize proof." },
+    "/siteConfig/{configId}": { "schema": "SiteConfig", "description": "Persistent global settings including social links, disclaimers, and reward tiers." }
+  }
+}

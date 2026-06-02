@@ -1,0 +1,9 @@
+# Query: Requires 1,00,000+ Followers to be eligible
+# ContextLines: 1
+
+1 result - 1 file
+
+src/app/page.tsx:
+  328            <div className="flex justify-center mb-4">
+  329:              <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20 text-[10px] uppercase font-bold px-4 py-1">Requires 1000+ Followers to be eligible</Badge>
+  330            </div>
